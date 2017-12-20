@@ -10,7 +10,9 @@
 This is a package made for PHP, to interact with the Pushthis RESTful API Network Access Point to send payloads through the network to your client side in real-time! 
 
 # Installing
-> coming soon
+```sh
+composer require pushthis/pushthis
+```
 
 # How to use
 > Define your keys and access point
@@ -21,9 +23,9 @@ $pushthis = new Pushthis('key', 'secret', 'Access Point');
 > Single Payload Requests
 ```php
 $pushthis = new Pushthis('key', 'secret', 'Access Point');
+$pushthis->setChannel('channel');
+$pushthis->setEvent('event');
 $pushthis->send(array(
-	'channel' => 'the_chat',
-	'event' => 'new_message',
 	'username' => 'john_doe',
 	'message'  => 'Hello Everyone!'
 ));
@@ -54,7 +56,7 @@ $pushthis->send();
 > Authorizing Payload Request
 ```php
 $pushthis = new Pushthis('key', 'secret', 'Access Point');
-$pushthis->authorize(true, "channel", "socketId");
+$pushthis->authorize(boolean, "channel", "socketId");
 ```
 
 # Indepth Documentation
